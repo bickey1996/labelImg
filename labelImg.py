@@ -126,7 +126,7 @@ class MainWindow(QMainWindow, WindowMixin):
         useDefaultLabelContainer.setLayout(useDefaultLabelQHBoxLayout)
 
         # Create a widget for edit and diffc button
-        self.diffcButton = QCheckBox('Difficult')
+        self.diffcButton = QCheckBox(getStr('useDifficult'))
         self.diffcButton.setChecked(False)
         self.diffcButton.stateChanged.connect(self.btnstate)
         self.truncButton = QCheckBox('Truncated')

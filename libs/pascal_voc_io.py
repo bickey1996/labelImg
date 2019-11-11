@@ -91,12 +91,33 @@ class PascalVocWriter:
             pose = SubElement(object_item, 'pose')
             pose.text = "Unspecified"
             truncated = SubElement(object_item, 'truncated')
+            fake = SubElement(object_item, 'fake')
+            behindglass = SubElement(object_item, 'behindglass')
+            reflection = SubElement(object_item, 'reflection')
+            occluded = SubElement(object_item, 'occluded')
+            crew = SubElement(object_item, 'crew')
             if int(float(each_object['ymax'])) == int(float(self.imgSize[0])) or (int(float(each_object['ymin']))== 1):
-                truncated.text = "1" # max == height or min
+                truncated.text = "1"
+                fake.text = "1"
+                behindglass.text = "1"
+                reflection.text = "1"
+                occluded.text = "1"
+                crew.text = "1"
+                 # max == height or min
             elif (int(float(each_object['xmax']))==int(float(self.imgSize[1]))) or (int(float(each_object['xmin']))== 1):
-                truncated.text = "1" # max == width or min
+                truncated.text = "1"
+                fake.text = "1"
+                behindglass.text = "1"
+                reflection.text = "1"
+                occluded.text = "1"
+                crew.text = "1" # max == width or min
             else:
                 truncated.text = "0"
+                fake.text = "0"
+                behindglass.text = "0"
+                reflection.text = "0"
+                occluded.text = "0"
+                crew.text = "0"
             difficult = SubElement(object_item, 'difficult')
             difficult.text = str( bool(each_object['difficult']) & 1 )
             bndbox = SubElement(object_item, 'bndbox')
